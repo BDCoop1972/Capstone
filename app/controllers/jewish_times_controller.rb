@@ -11,9 +11,8 @@ class JewishTimesController < ApplicationController
        # zipcode is converted into longitude and latitude
        lat_long = Geocoder.coordinates(input_zip)
 
-        # day = Time.now.strftime("%d/%m/%Y") 
-        # day = Time.now
-        day = 3.months.ago
+        day = Time.now
+        # day = 3.months.ago
 
         latitude = lat_long[0]
         longitude = lat_long[1]
@@ -24,18 +23,51 @@ class JewishTimesController < ApplicationController
         z = Ziptz.new
         zones = z.time_zone_name(input_zip)
         morning = zones  + " Time " + "(US & Canada)"
-        night = zones + " Time " + "(US & Canada)"
+        # night = zones + " Time " + "(US & Canada)"
+
         
-        # horizon = sun_times.rise(day, latitude, longitude).in_time_zone(morning)
+        rising = sun_times.rise(day, latitude, longitude).in_time_zone(morning)
 
-        # minutes = 60
+        setting = sun_times.set(day, latitude, longitude).in_time_zone(morning)
 
-        # time = horizon - minutes
+        number = [60.minutes, 52.minutes, 50.minutes, 45.minutes, 35.minutes]
+        index = 0
+        input_array = []
+        tallis = 0
+        
 
-        # render json: time
+        
+        # earliest time for tallis and tefillin 1 hour before sunrise Rabbi Henkin
+        # rising - 60.minutes
+        # 52 minutes before sunrise Olat Tamid
+        # rising - 52.minutes
+        # 50 minutes before sunrise Olat Tamid
+        # rising - 50.minutes
+        # 45 minutes before sunrise Olat Tamid
+        # rising - 45.minutes
+        # 35 - 40 minutes before sunrise Reb Moshe
+        # rising - 35.minutes
 
 
-        render json: sun_times.rise(day, latitude, longitude).in_time_zone(morning)
+    5.times do
+
+        tallis = rising - number[index]
+        p tallis
+        index += 1
+        input_array << tallis
+
+    end
+
+
+    p rising
+    p setting
+
+        
+
+
+        render json: input_array[0]
+
+        # render json: rising - 60.minutes
 
         # render json: sun_times.set(day, latitude, longitude).in_time_zone(night)
 
