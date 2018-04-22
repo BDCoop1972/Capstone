@@ -57,11 +57,6 @@ class JewishTimesController < ApplicationController
         input_array << tallis
 
     end
-
-
-    p rising
-    p setting
-
         
 
 
