@@ -3,11 +3,14 @@ class JewishTimesController < ApplicationController
 
     def index
        # user enters zipcode
-       input_zip = params[:zip]
+       puts params
+       input_zip = params[:zip].to_i
+       p input_zip
 
 
        # zipcode is converted into longitude and latitude
        lat_long = Geocoder.coordinates(input_zip)
+        p lat_long
 
         day = Time.now
 
@@ -19,6 +22,7 @@ class JewishTimesController < ApplicationController
         # sun_times.set(day, latitude, longitude) 
         z = Ziptz.new
         zones = z.time_zone_name(input_zip)
+
         morning = zones  + " Time " + "(US & Canada)"
         # night = zones + " Time " + "(US & Canada)"
 

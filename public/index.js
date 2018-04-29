@@ -4,14 +4,27 @@ var HomePage = {
   template: "#home-page",
   data: function() {
     return {
-      message: "Welcome to Vue.js!",
-      times: []
+      message: "Welcome to Jewish Times!",
+      times: [],
+      zipcode: ""
     };
   },
   created: function() {
-    axios.get("http://local:3000/jewishtimes").then(function(response) {this.times = response.data;}.bind(this));
+    // axios.get('/jewishtimes').then(function(response) {this.times = response.data;}.bind(this));
   },
-  methods: {},
+  methods: {
+    submit: function() {
+        var params = {
+            zip: this.zipcode
+        };
+        axios.get('/jewishtimes?zip=' + params.zip).then(function(response) { 
+            router.push("/");
+            // console.log(response.data.);
+            this.times = response.data;
+        }.bind(this))
+        .catch(function(error) {this.errors = error.response.data.errors;}.bind(this));
+    }
+  },
   computed: {}
 };
 var router = new VueRouter({
