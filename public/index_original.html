@@ -1,0 +1,37 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My App</title>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.js"></script>
+  <script src="index.js" defer></script>
+</head>
+<body>
+  <div id="vue-app">
+
+    <router-view></router-view>
+
+  </div>
+</body>
+</html>
+
+<template id="home-page">
+  <div class="vue-component">
+
+    <h1>{{ message }}</h1>
+    <div>
+      <p>zipcode <input type="text" v-model="zipcode"></p>
+      <button v-on:click="submit()">Enter Zipcode</button>
+      <script type="text/javascript" src="strftime.js"></script>
+      <!-- <script type="text/javascript">
+          document.write( (new Date).strftime('%A %B %e %Y %m %M %p') );
+      </script> -->
+      <p v-for="time in times"> {{ time }} </p>
+    </div>
+
+  </div>
+</template>

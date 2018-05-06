@@ -1,37 +1,210 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta charset="UTF-8">
-  <title>My App</title>
+
+   <!--- Basic Page Needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Ceevee - Free Responsive HTML5/CSS3 Template</title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+   <!-- Mobile Specific Metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+    ================================================== -->
+   <link rel="stylesheet" href="css/default.css">
+	<link rel="stylesheet" href="css/layout.css">
+   <link rel="stylesheet" href="css/media-queries.css">
+   <link rel="stylesheet" href="css/magnific-popup.css">
+
+   <!-- Script
+   ================================================== -->
+	<script src="js/modernizr.js"></script>
+
+   <!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="favicon.png" >
+
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js" defer></script>
+
 </head>
+
 <body>
+
+   <!-- Header
+   ================================================== -->
   <div id="vue-app">
+   <header id="home">
+
+      <nav id="nav-wrap">
+
+         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
+	      <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
+
+         <ul id="nav" class="nav">
+            <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
+            <!-- <li><a class="smoothscroll" href="#changeDate">Change Date</a></li> -->
+	         <li><a class="smoothscroll" href="#calendar">Calendar</a></li>
+            
+         </ul> <!-- end #nav -->
+
+      </nav> <!-- end #nav-wrap -->
+
+      <div class="row banner">
+         <div class="banner-text">
+            <h1 class="responsive-headline">Welcome to Jewish Times</h1>
+            <h3>Your place to find the earliest times for Tallis and Tefillin</h3>  
+         </div>
+      </div>
+
+
+   </header>
+
+   <!-- <div id="vue-app"> -->
 
     <router-view></router-view>
 
-  </div>
+
+
+
+
+   <!-- <!- About Section
+   ================================================== -->
+   <!-- <section id="change-date-page">
+
+      <div class="row">
+
+         <div class="three columns">
+
+
+         </div>
+
+         <div class="nine columns main-col">
+ -->
+            <!-- <h2>Change Date</h2>
+          
+    
+
+         </div>
+
+      </div>
+
+   </section> <!-About Section End-->
+
+ 
+   <!-- Resume Section
+   ================================================== -->
+   <section id="calendar">
+
+      
+      <div class="row education">
+
+         <div class="three columns header-col">
+            
+         </div>
+
+         <div class="nine columns main-col">
+            <h2>Calendar</h2>
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  
+
+               </div>
+
+            </div> <!-- item end -->
+
+            <div class="row item">
+
+               <div class="twelve columns">
+
+                  
+
+                  
+               </div>
+
+            </div> <!-- item end -->
+
+         </div> <!-- main-col end -->
+
+      </div> <!-- End Education -->
+
+
+      
+
+  
+   <!-- footer
+   ================================================== -->
+   <footer>
+
+      <div class="row">
+
+         <div class="twelve columns">
+
+            
+
+            <ul class="copyright">
+               <li>&copy; Copyright 2014 CeeVee</li>
+               <li>Design by <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Styleshout</a></li>   
+            </ul>
+
+         </div>
+
+         
+
+      </div>
+
+   </footer> <!-- Footer End-->
+   </div>
+
+   <!-- Java Script
+   ================================================== -->
+   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script>window.jQuery || document.write('<script src="js/jquery-1.10.2.min.js"><\/script>')</script>
+   <script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
+
+   <script src="js/jquery.flexslider.js"></script>
+   <script src="js/waypoints.js"></script>
+   <script src="js/jquery.fittext.js"></script>
+   <script src="js/magnific-popup.js"></script>
+   <script src="js/init.js"></script>
+   <!-- <script type="text/javascript" src="strftime.js"></script>
+<script type="text/javascript">
+    document.write( (new Date).strftime('%Y-%m-%dT%H:%M:%S') );
+</script> -->
+
 </body>
+
 </html>
 
 <template id="home-page">
   <div class="vue-component">
 
-    <h1>{{ message }}</h1>
     <div>
-      <p>zipcode <input type="text" v-model="zipcode"></p>
+      <p>zipcode <input type="integer" v-model="zipcode"></p>
       <button v-on:click="submit()">Enter Zipcode</button>
-      <script type="text/javascript" src="strftime.js"></script>
-      <script type="text/javascript">
-          document.write( (new Date).strftime('%A %B %e %Y %m %M %p') );
-      </script>
       <p v-for="time in times"> {{ time }} </p>
     </div>
 
+    <!-- Change Date Here -->
+    <div>
+    
+      <p>change date <input type="integer" v-model="date"></p>
+      <button v-on:click="submitDate()">Enter New Date</button>
+      
+      <p v-for="date in dates"> {{ date }} </p>
+    </div>
+
+
   </div>
-</template>
+</template> 
