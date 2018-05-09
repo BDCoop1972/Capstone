@@ -1,5 +1,6 @@
 /* global Vue, VueRouter, axios */
 
+
 var HomePage = {
   template: "#home-page",
   data: function() {
@@ -20,6 +21,7 @@ var HomePage = {
       axios.get('/jewishtimes?zip=' + params.zip).then(function(response) { 
         router.push("/");
         this.times = response.data;
+
       }.bind(this))
         .catch(function(error) {
           this.errors = error.response.data.errors;

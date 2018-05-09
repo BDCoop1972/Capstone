@@ -4,6 +4,7 @@
 <!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 
+
    <!--- Basic Page Needs
    ================================================== -->
    <meta charset="utf-8">
@@ -21,10 +22,11 @@
 	<link rel="stylesheet" href="css/layout.css">
    <link rel="stylesheet" href="css/media-queries.css">
    <link rel="stylesheet" href="css/magnific-popup.css">
-
+   
    <!-- Script
    ================================================== -->
-	<script src="js/modernizr.js"></script>
+  <script src="js/modernizr.js"></script>
+	<script src="strftime.js"></script>
 
    <!-- Favicons
 	================================================== -->
@@ -34,6 +36,7 @@
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.js"></script>
   <script src="index.js" defer></script>
+  <!-- <script src="strftime.js"></script> -->
 
 </head>
 
@@ -60,8 +63,8 @@
 
       <div class="row banner">
          <div class="banner-text">
-            <h1 class="responsive-headline">Welcome to Jewish Times</h1>
-            <h3>Your place to find the earliest times for Tallis and Tefillin</h3>  
+            <h1>Welcome to Jewish Times</h1>
+            <h1>Your place to find the earliest times for Tallis and Tefillin</h1>  
          </div>
       </div>
 
@@ -183,6 +186,7 @@
     document.write( (new Date).strftime('%Y-%m-%dT%H:%M:%S') );
 </script> -->
 
+
 </body>
 
 </html>
@@ -193,7 +197,8 @@
     <div>
       <p>zipcode <input type="integer" v-model="zipcode"></p>
       <button v-on:click="submit()">Enter Zipcode</button>
-      <p v-for="time in times"> {{ time }} </p>
+      <p v-for="time in times"> {{ time  }} </p>
+
     </div>
 
     <!-- Change Date Here -->
@@ -205,6 +210,7 @@
       <p v-for="date in dates"> {{ date }} </p>
     </div>
 
-
   </div>
 </template> 
+
+  
