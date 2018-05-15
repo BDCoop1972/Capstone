@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   patch "/jewishtimes/id" => "jewish_times#update"
   delete "/jewishtimes" => "jewish_times#destroy"
 
+  # get "/calendars" => "calendars#index"
 end
