@@ -3,16 +3,13 @@ class JewishTimesController < ApplicationController
 
   def index
        # user enters zipcode
-    input_zip = 60645
-    # params[:zip].to_i
+    input_zip = params[:zip]
         
     # input_date = params[:date].to_i
 
 
        # zipcode is converted into longitude and latitude
     lat_long = Geocoder.coordinates(input_zip)
-
-    p lat_long
 
 
    
@@ -24,6 +21,8 @@ class JewishTimesController < ApplicationController
     # end
     # input_array = []
     input_times = []
+    latitude = lat_long[0]
+    longitude = lat_long[1]
 
 
     35.times do
@@ -32,8 +31,8 @@ class JewishTimesController < ApplicationController
     
     
 
-      latitude = lat_long[0]
-      longitude = lat_long[1]
+      # latitude = lat_long[0]
+      # longitude = lat_long[1]
       sun_times = SunTimes.new
         
          
@@ -56,11 +55,11 @@ class JewishTimesController < ApplicationController
    
       5.times do
       
-      tallis = rising - number[index]
-      p tallis
-      index += 1
-      input_array << tallis.strftime('%B %d, %Y %I:%M:%S')
-    end
+        tallis = rising - number[index]
+        p tallis
+        index += 1
+        input_array << tallis.strftime('%B %d, %Y %I:%M:%S')
+      end
 
 
       input_times << {

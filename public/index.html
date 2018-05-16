@@ -75,34 +75,19 @@
 
     <router-view></router-view>
 
-
-
-   
-
-            <div id="calendar"></div>
       
 
   
    <!-- footer
    ================================================== -->
    <footer>
-
-      <!-- <div class="row">
-
-         <div class="twelve columns"> -->
-
             
 
             <ul class="copyright">
                <li>&copy; Copyright 2014 CeeVee</li>
-               <li>Design by <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Styleshout</a></li>   
+               <li>Designed by <a href="http://www.styleshout.com/" title="Styleshout" target="_blank">Barry Cooper</a></li>   
             </ul>
 
-         <!-- </div>
-
-         
-
-      </div> -->
 
    </footer> <!-- Footer End-->
    </div>
@@ -110,36 +95,8 @@
    <!-- Java Script
    ================================================== -->
    
-   <script src="hebcal-fullcalendar.js"></script>
-    <script>
-(document).ready;
-$(function() {
-  $("#calendar").fullCalendar({
-    themeSystem: 'jquery-ui',
-    themeName: 'Mint Choc',
-    header: {
-      left: "",
-      center: "title"
-      // right: "month,agendaWeek,agendaDay"
-    },
-    editable: false,
-    fixedWeekCount: false,
-    timezone: false,
-    events: {
-      url: "http://localhost:3000/jewishtimes",
-      // url: "https://www.hebcal.com/hebcal/?cfg=fc&v=1&i=off&maj=on&min=on&nx=on&mf=on&ss=on&mod=on&F=on&s=on&c=on&b=18&m=50&dy=on&geo=zip&zip=60645&o=on&d=on&lg=sh",
-      cache: true
-    }
-  });
-  ("body").keydown(function(e) {
-    if (e.keyCode === 37) {
-      ('#calendar').fullCalendar('prev');
-    } else if (e.keyCode === 39) {
-      ('#calendar').fullCalendar('next');
-    }
-  });
-});
-    </script>
+   <!-- <script src="hebcal-fullcalendar.js"></script> -->
+
 
 
    
@@ -161,7 +118,7 @@ $(function() {
 <template id="home-page">
   <div class="vue-component">
 
-    
+    <div id="calendar"></div>
 
 
     <div>
@@ -169,6 +126,7 @@ $(function() {
       <p>zipcode <input type="integer" v-model="zipcode"></p>
       <button v-on:click="submit()">Enter Zipcode</button>
       <p v-for="time in times"> {{ time.title  }} </p>
+      
 
     </div>
 
@@ -178,7 +136,7 @@ $(function() {
       <p>change date <input type="integer" v-model="date" /></p>
       <button v-on:click="submitDate()">Enter New Date</button>
       <p v-for="date in dates"> {{ date }} </p>
-    </div> -->
+    </div>  -->
 
 
   </div>
