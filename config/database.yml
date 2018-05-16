@@ -83,3 +83,6 @@ production:
   database: Capstone_production
   username: Capstone
   password: <%= ENV['CAPSTONE_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
